@@ -96,7 +96,9 @@ export const authClient = createAuthClient({
 ```
 
 #### Opcional
+```
 npm i --save-dev prisma@latest 
-npm i @prisma/client@latest   
+npm i @prisma/client@latest  
+```
 #### 2. Passo
 #### 3. Passo
