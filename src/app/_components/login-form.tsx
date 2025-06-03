@@ -1,5 +1,7 @@
 "use client"
 
+import { authClient } from "@/lib/auth-client"
+
 import { useState } from "react"
 import { useRouter } from "next/navigation"
 import { z } from "zod"
@@ -34,8 +36,25 @@ export function LoginForm() {
   })
 
   async function onSubmit(formData: LoginFormValues) {
-
-
+    const {} = await authClient.signIn.email({
+      email: formData.email,
+      password: formData.password,
+      callbackURL: "/dashboard",
+    }, {
+      onRequest: (ctx) => {
+        
+      },
+      onSuccess: (ctx) => {
+        console.log("LOGADO COM SUCESSO", ctx)
+        router.replace("/dashboard")
+        console.log(ctx)
+      },
+      onError: (ctx) => {
+        alert("Erro ao logar")
+        console.log("ERRO AO LOGAR")
+        console.log(ctx)
+      }
+    })
   }
 
   return (
