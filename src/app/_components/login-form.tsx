@@ -41,9 +41,6 @@ export function LoginForm() {
       password: formData.password,
       callbackURL: "/dashboard",
     }, {
-      onRequest: (ctx) => {
-        
-      },
       onSuccess: (ctx) => {
         console.log("LOGADO COM SUCESSO", ctx)
         router.replace("/dashboard")
@@ -52,7 +49,10 @@ export function LoginForm() {
       onError: (ctx) => {
         alert("Erro ao logar")
         console.log("ERRO AO LOGAR")
-        console.log(ctx)
+        console.log(ctx.error.message)
+        if(ctx.error.code === "INVALID_EMAIL_OR_PASSWORD") {
+          alert("Email ou senha incorretos")
+        }
       }
     })
   }

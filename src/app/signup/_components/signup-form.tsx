@@ -16,7 +16,7 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 const signupSchema = z
   .object({
     name: z.string().min(3, { message: "O nome deve ter pelo menos 3 caracteres" }),
-    email: z.string().email({ message: "Email inválido" }),
+    email: z.string().min(5, { message: "O nome deve ter pelo menos 5 caracteres" }).email({ message: "Email inválido" }),
     password: z.string().min(8, { message: "A senha deve ter pelo menos 8 caracteres" }),
     confirmPassword: z.string().min(8, { message: "A confirmação de senha deve ter pelo menos 8 caracteres" }),
   })
