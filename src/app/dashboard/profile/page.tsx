@@ -23,37 +23,33 @@ export default function Profil() {
         <h1 className="text-2xl font-bold mb-4 text-center">Perfil</h1>
 
         {selectedImage && (
-          <div className="mb-4">
+          <div className="mb-2">
             <img
               src={selectedImage}
               alt="Preview"
-              className="md:w-full h-auto rounded-lg border w-44 mx-auto"
+              height={200}
+              width={200}
+              className="h-auto rounded-lg border mx-auto"
             />
           </div>
         )}
 
-        <div className="mb-4 flex items-center gap-2">
-          <label className="block text-gray-700 font-medium mb-2" htmlFor="image">
-            Imagem
-          </label>
-          <input
-            type="file"
-            id="image"
-            
-            accept="image/*"
-            className="w-44 md:w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+        <div className="mb-4 h-16 flex justify-center items-center">
+          <label className="font-medium  cursor-pointer text-white bg-blue-500 p-2 rounded-l-md" htmlFor="image"> Imagem </label>
+          <input type="file" id="image" accept="image/*"
+            className="flex-1 bg-slate-200 cursor-pointer outline-none p-2 focus:outline-none rounded-r-md focus:ring-0 focus:none"
             onChange={handleImageChange}
           />
         </div>
 
-        <div className="mb-4">
+        <div className="mb-2">
           <label className="block text-gray-700 font-medium mb-0" htmlFor="name"> Nome </label>
           <input type="text" id="name"
             className="w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
         </div>
 
-        <div className="mb-4">
+        <div className="mb-2">
           <label className="block text-gray-700 font-medium mb-0" htmlFor="email"> Email </label>
           <input type="email" id="email"
             className="w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"

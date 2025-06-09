@@ -10,15 +10,13 @@ export function ButtonSignOut() {
   async function signOut() {
     await authClient.signOut({
       fetchOptions: {
-        onSuccess: () => {
-          router.replace("/");
-        }
+        onSuccess: () => { router.replace("/") }
       }
     });
   }
 
   return (
-    <Button onClick={signOut} className="cursor-pointer">
+    <Button onClick={signOut} className="cursor-pointer hover:bg-red-600 duration-300 transition-all">
       Sair da conta
     </Button>
   );
